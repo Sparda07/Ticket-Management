@@ -56,9 +56,13 @@ h3{
 }
 
 
-.home-bg .home .content a{
+.home-bg .home .content a,.summary-card .delete-btn, .logout .delete-btn {
    display: inline-block;
    width: auto;
+}
+
+.logout{
+   left:0px;
 }
 
 .home-category .box-container{
@@ -106,10 +110,22 @@ th , td {
    text-align: center;
    vertical-align: middle;
    padding: 1.5rem;
+   min-width: 20ch;
    
 }
-.summary-list{
+.summary-list .a td {
    line-height: 1.5;
+   color:var(--white);
+   background:var(--green);
+   padding: 0px;
+   border-radius: .5rem;
 }
+.summary-list a{
+   display: block;
+   width: 100%;
+   color: var(--white);
+}
+
+
 
 

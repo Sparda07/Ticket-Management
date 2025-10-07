@@ -40,7 +40,7 @@ include("../../Model/queries.php");
                 <td><?php echo $total_orders; ?></td>
             </tr>
 
-            <tr>
+            <tr class = "a">
                 <td><a href="manage_users.php">Manage Users</a></td>
                 <td><a href="manage_organizers.php">Manage Organizers</a></td>
                 <td><a href="manage_events.php">Manage Events</a></td>
@@ -48,18 +48,9 @@ include("../../Model/queries.php");
             </tr>
 
         </table>
+
+            
     </section>
-
-<hr>
-<h3>Quick Links</h3>
-<ul>
-    <li><a href="manage_users.php">Manage Users</a></li>
-    <li><a href="manage_organizers.php">Manage Organizers</a></li>
-    <li><a href="manage_events.php">Manage Events</a></li>
-    <li><a href="manage_orders.php">Manage Orders</a></li>
-</ul>
-
-<a href="../Reg/logout.php">Logout</a>
-
+    <div class = "summary-card"><a href="../Reg/logout.php" class = "delete-btn">Logout</a></div>
 </body>
 </html>

@@ -67,7 +67,6 @@ section{
 .delete-btn,
 .option-btn{
    display: block;
-   width: 100%;
    margin-top: 1rem;
    border-radius: .5rem;
    color:var(--white);
@@ -92,7 +91,8 @@ section{
 
 .btn:hover,
 .delete-btn:hover,
-.option-btn:hover{
+.option-btn:hover,
+.summary-list .a td:hover{
    background-color: var(--black);
 }
 
