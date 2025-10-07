@@ -180,3 +180,61 @@ function admin_delete_organizer($conn, $org_id) {
 function admin_delete_event($conn, $event_id) {
     return mysqli_query($conn, "DELETE FROM events WHERE event_id = $event_id");
 }
+
+/* ===================== PAYMENTS (basic) ===================== */
+
+/* Get a single order for this user (safety) */
+function get_order_for_user($conn, $order_id, $user_id) {
+    $order_id = intval($order_id);
+    $user_id  = intval($user_id);
+    $sql = "SELECT * FROM orders WHERE id = $order_id AND user_id = '$user_id' LIMIT 1";
+    $res = mysqli_query($conn, $sql);
+    if ($res && mysqli_num_rows($res) > 0) {
+        return mysqli_fetch_assoc($res);
+    }
+    return null;
+}
+
+/* Create a payment row with status=Initiated */
+function create_payment_initiated($conn, $order_id, $user_id, $amount, $method) {
+    $order_id = intval($order_id);
+    $user_id  = intval($user_id);
+    $amount   = mysqli_real_escape_string($conn, $amount);
+    $method   = mysqli_real_escape_string($conn, $method);
+    $sql = "INSERT INTO payments (order_id, user_id, amount, method, status)
+            VALUES ($order_id, $user_id, '$amount', '$method', 'Initiated')";
+    if (mysqli_query($conn, $sql)) {
+        return mysqli_insert_id($conn);
+    }
+    return false;
+}
+
+/* Mark payment success/failure and optionally mark order as Paid */
+function finalize_payment($conn, $payment_id, $status, $txn_ref) {
+    $payment_id = intval($payment_id);
+    $status     = ($status === 'Success') ? 'Success' : 'Failed';
+    $txn_ref    = mysqli_real_escape_string($conn, $txn_ref);
+
+    // Update payment row
+    $upd = "UPDATE payments SET status='$status', txn_ref='$txn_ref' WHERE payment_id=$payment_id";
+    if (!mysqli_query($conn, $upd)) return false;
+
+    // If success, fetch payment -> update order to Paid
+    if ($status === 'Success') {
+        $res = mysqli_query($conn, "SELECT order_id FROM payments WHERE payment_id=$payment_id");
+        if ($res && mysqli_num_rows($res) > 0) {
+            $row = mysqli_fetch_assoc($res);
+            $oid = intval($row['order_id']);
+            mysqli_query($conn, "UPDATE orders SET payment_status='Paid' WHERE id=$oid");
+        }
+    }
+    return true;
+}
+
+/* Optional: fetch a single payment row */
+function get_payment($conn, $payment_id) {
+    $payment_id = intval($payment_id);
+    $res = mysqli_query($conn, "SELECT * FROM payments WHERE payment_id=$payment_id");
+    if ($res && mysqli_num_rows($res) > 0) return mysqli_fetch_assoc($res);
+    return null;
+}
