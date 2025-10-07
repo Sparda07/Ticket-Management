@@ -42,7 +42,7 @@ $result = get_user_orders_with_event($conn, $user_id);
                 <p><strong>Status:</strong> <?php echo $ticket["payment_status"]; ?></p>
 
                 <?php if ($ticket["payment_status"] === "Pending"): ?>
-                    <a href="?pay_id=<?php echo $ticket['id']; ?>" class="btn">Pay Now</a>
+                    <a href="../../Controller/payment_auth.php?order_id=<?php echo $ticket['id']; ?>" class="btn">Pay Now</a>
                 <?php else: ?>
                     <button class="btn" disabled>Paid</button>
                 <?php endif; ?>
