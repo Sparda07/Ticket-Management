@@ -27,13 +27,26 @@ h3{
    font-size: 2.5rem;
 }
 
-.home-bg .home .content h3 ,.header, .summary-header{
+.home-bg .home .content h3 ,.header, .admin-header{
    font-size: 3rem;
    text-transform: uppercase;
    margin-top: 1.5rem;
    color:var(--black);
 }
-.summary-header{
+
+.header.header-table{
+   text-transform: none;
+}
+
+.rolling-section{
+   position: sticky;
+   top:0;
+   background: var(--light-bg);
+   padding-left: 0;
+   padding-right: 0;
+   max-width: 100%;
+}
+.admin-header{
    font-size: 2rem;
    margin: 1.5rem;
 }
@@ -56,14 +69,21 @@ h3{
 }
 
 
-.home-bg .home .content a,.summary-card .delete-btn, .logout .delete-btn {
+.home-bg .home .content a,
+.summary-card .delete-btn ,.delete-btn{
    display: inline-block;
    width: auto;
 }
 
-.logout{
-   left:0px;
+.back{
+   padding: 0 3ch 0 3ch;
+   
 }
+
+.back-div{
+   padding-left: 1rem;
+}
+
 
 .home-category .box-container{
    display: grid;

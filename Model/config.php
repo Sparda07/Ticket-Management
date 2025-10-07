@@ -15,12 +15,10 @@ catch(mysqli_sql_exception){
     echo"Could not connect";
 }
 
-if($conn){
-    echo"your are connected!!!!!!!!!!!!!";
-
-
-}
-
-else{
+if(!$conn){
     echo"could not connected";
 }
+
+/*else{
+
+}*/

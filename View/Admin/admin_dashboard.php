@@ -24,7 +24,7 @@ include("../../Model/queries.php");
     ?>
 
     <section class = "summary-card">
-        <h3 class = "summary-header">Event Ticket Summary</h3>
+        <h3 class = "admin-header">Event Ticket Summary</h3>
         <table class = "summary-list">
             <tr>
                 <th>Total Users</th>
