@@ -18,24 +18,25 @@
    width: 50rem;
 }
 
-.home-bg .home .content span{
+.home-bg .home .content span {
    color:var(--orange);
    font-size: 2.5rem;
 }
 
-.home-bg .home .content h3{
+.home-bg .home .content h3 ,.header{
    font-size: 3rem;
    text-transform: uppercase;
    margin-top: 1.5rem;
    color:var(--black);
 }
 
-.home-bg .home .content p{
+.home-bg .home .content p  ,.paragraph ,.paragraph > *{
    font-size: 1.6rem;
    padding:1rem 0;
    line-height: 2;
    color:var(--light-color);
 }
+
 
 .home-bg .home .content a{
    display: inline-block;
@@ -82,3 +83,4 @@
    padding-bottom: 0;
 }
 
+admin 

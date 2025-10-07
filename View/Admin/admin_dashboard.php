@@ -7,12 +7,17 @@ include("../../Model/queries.php");
 <html>
 <head>
     <title>Admin Dashboard</title>
+    <link rel="stylesheet"  href="../CSS/style.css">
 </head>
 <body>
+    <header class = "header">
+        <h3 class = "header">Admin Dashboard</h1>
+        <p class = "paragraph">Welcome, <strong><?php echo $_SESSION["username"]; ?></strong></p>
+    </header>
 
 <h1>Admin Dashboard</h1>
 <p>Welcome, <strong><?php echo $_SESSION["username"]; ?></strong></p>
-<hr>
+
 
 <?php
 $total_users  = count_users($conn);
