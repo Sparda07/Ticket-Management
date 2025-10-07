@@ -5,18 +5,7 @@ include("../../Model/queries.php");
 
 $user_id = $_SESSION["user_id"];
 
-// ✅ Handle payment simulation
-if (isset($_GET['pay_id'])) {
-    $order_id = intval($_GET['pay_id']);
-    // Update only if the order belongs to this user
-    mark_order_paid($conn, $order_id, $user_id);
-
-    // Redirect back to refresh page
-    header("Location: my_tickets.php");
-    exit();
-}
-
-// Fetch user orders with event info
+// Fetch user's orders with event details
 $result = get_user_orders_with_event($conn, $user_id);
 ?>
 
@@ -36,14 +25,16 @@ $result = get_user_orders_with_event($conn, $user_id);
             <div class="box">
                 <h3><?php echo htmlspecialchars($ticket["name"]); ?></h3>
                 <p><strong>Location:</strong> <?php echo htmlspecialchars($ticket["location"] ?? "N/A"); ?></p>
-                <p><strong>Date:</strong> <?php echo $ticket["event_date"] ?? "N/A"; ?></p>
-                <p><strong>Quantity:</strong> <?php echo $ticket["total_tickets"]; ?></p>
-                <p><strong>Price:</strong> $<?php echo $ticket["total_price"]; ?></p>
-                <p><strong>Status:</strong> <?php echo $ticket["payment_status"]; ?></p>
+                <p><strong>Date:</strong> <?php echo htmlspecialchars($ticket["event_date"] ?? "N/A"); ?></p>
+                <p><strong>Quantity:</strong> <?php echo htmlspecialchars($ticket["total_tickets"]); ?></p>
+                <p><strong>Price:</strong> $<?php echo htmlspecialchars($ticket["total_price"]); ?></p>
+                <p><strong>Status:</strong> <?php echo htmlspecialchars(ucfirst($ticket["payment_status"])); ?></p>
 
-                <?php if ($ticket["payment_status"] === "Pending"): ?>
-                    <a href="../../Controller/payment_auth.php?order_id=<?php echo $ticket['id']; ?>" class="btn">Pay Now</a>
+                <?php if (strcasecmp($ticket["payment_status"], "Pending") === 0): ?>
+                    <!-- Link to payment page -->
+                    <a href="payment.php?order_id=<?php echo $ticket['id']; ?>" class="btn">Pay Now</a>
                 <?php else: ?>
+                    <!-- Show Paid (disabled button) -->
                     <button class="btn" disabled>Paid</button>
                 <?php endif; ?>
             </div>
