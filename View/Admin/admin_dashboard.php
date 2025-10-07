@@ -15,24 +15,40 @@ include("../../Model/queries.php");
         <p class = "paragraph">Welcome, <strong><?php echo $_SESSION["username"]; ?></strong></p>
     </header>
 
-<h1>Admin Dashboard</h1>
-<p>Welcome, <strong><?php echo $_SESSION["username"]; ?></strong></p>
 
+    <?php
+        $total_users  = count_users($conn);
+        $total_orgs   = count_organizers($conn);
+        $total_events = count_events($conn);
+        $total_orders = count_orders($conn);
+    ?>
 
-<?php
-$total_users  = count_users($conn);
-$total_orgs   = count_organizers($conn);
-$total_events = count_events($conn);
-$total_orders = count_orders($conn);
-?>
+    <section class = "summary-card">
+        <h3 class = "summary-header">Event Ticket Summary</h3>
+        <table class = "summary-list">
+            <tr>
+                <th>Total Users</th>
+                <th>Total Organizers</th>
+                <th>Total Events</th>
+                <th>Total Orders</th>
+            </tr>
 
-<h3>Summary</h3>
-<ul>
-    <li>Total Users: <?php echo $total_users; ?></li>
-    <li>Total Organizers: <?php echo $total_orgs; ?></li>
-    <li>Total Events: <?php echo $total_events; ?></li>
-    <li>Total Orders: <?php echo $total_orders; ?></li>
-</ul>
+             <tr>
+                <td><?php echo $total_users; ?></td>
+                <td><?php echo $total_orgs; ?></td>
+                <td><?php echo $total_events; ?></td>
+                <td><?php echo $total_orders; ?></td>
+            </tr>
+
+            <tr>
+                <td><a href="manage_users.php">Manage Users</a></td>
+                <td><a href="manage_organizers.php">Manage Organizers</a></td>
+                <td><a href="manage_events.php">Manage Events</a></td>
+                <td><a href="manage_orders.php">Manage Orders</a></td>
+            </tr>
+
+        </table>
+    </section>
 
 <hr>
 <h3>Quick Links</h3>
