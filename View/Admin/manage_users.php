@@ -21,14 +21,14 @@ $result = get_all_users($conn);
     <link rel = "stylesheet" href = "../CSS/style.css">
 </head>
 <body>
-    <section class = "rolling-section">
+    <div class = "rolling-section">
         <header class = "header">
             <h3 class = "admin-header">Manage Users</h2>
         </header>
         <div class = "back-div"><a href="admin_dashboard.php" class = "delete-btn back">← Back to Dashboard</a> </div>
-    </section>
+    </div>
 
-    <div class = "header header-table">
+    <section class = "header header-table">
         <table border="1" cellpadding="8" cellspacing="0">
             <tr>
                 <th>User ID</th>
@@ -55,7 +55,7 @@ $result = get_all_users($conn);
                 <tr><td colspan="4">No users found.</td></tr>
             <?php endif; ?>
         </table>
-    </div>
+     </section>
     
 </body>
 </html>

@@ -27,7 +27,9 @@ h3{
    font-size: 2.5rem;
 }
 
-.home-bg .home .content h3 ,.header, .admin-header{
+.home-bg .home .content h3,
+.header, 
+.admin-header{
    font-size: 3rem;
    text-transform: uppercase;
    margin-top: 1.5rem;
@@ -51,7 +53,9 @@ h3{
    margin: 1.5rem;
 }
 
-.home-bg .home .content p  ,.paragraph ,.paragraph > *{
+.home-bg .home .content p,
+.paragraph ,
+.paragraph > *{
    font-size: 1.6rem;
    padding:1rem 0;
    line-height: 2;
@@ -70,7 +74,8 @@ h3{
 
 
 .home-bg .home .content a,
-.summary-card .delete-btn ,.delete-btn{
+.summary-card .delete-btn ,
+.delete-btn{
    display: inline-block;
    width: auto;
 }
@@ -125,14 +130,31 @@ h3{
    padding-bottom: 0;
 }
 
-th , td {
+th ,
+td,
+.manage-organizer-table {
    font-size: 2rem;
    text-align: center;
    vertical-align: middle;
    padding: 1.5rem;
    min-width: 20ch;
-   
 }
+
+.manage-organizer-table th,
+.manage-organizer-table td{
+   font-size: 1.7rem;
+   min-width: 0ch;
+   max-width: 15ch;
+   word-wrap: break-word; 
+   word-break: break-word;
+}
+
+.manage-organizer-table a{
+   font-size: 1.7rem;
+   padding: 1rem;
+}
+
+
 .summary-list .a td {
    line-height: 1.5;
    color:var(--white);
