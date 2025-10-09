@@ -1,5 +1,9 @@
 @import url('components.css');
 
+h3{
+   text-transform: uppercase;
+}
+
 .home-img{
    height: 150px;;
 }
@@ -23,25 +27,75 @@
    font-size: 2.5rem;
 }
 
-.home-bg .home .content h3 ,.header{
+.home-bg .home .content h3,
+.header, 
+.admin-header{
    font-size: 3rem;
    text-transform: uppercase;
    margin-top: 1.5rem;
    color:var(--black);
 }
 
-.home-bg .home .content p  ,.paragraph ,.paragraph > *{
+.header.header-table{
+   text-transform: none;
+}
+
+.rolling-section{
+   position: sticky;
+   top:0;
+   background: var(--light-bg);
+   padding-left: 0;
+   padding-right: 0;
+   max-width: 100%;
+}
+.admin-header{
+   font-size: 2rem;
+   margin: 1.5rem;
+}
+
+.home-bg .home .content p,
+.paragraph ,
+.paragraph > *{
    font-size: 1.6rem;
    padding:1rem 0;
    line-height: 2;
    color:var(--light-color);
 }
+.paragraph,
+.paragraph > *{
+   color: var(--orange);
+}
 
+.header,
+.summary-card{
+   display: grid;
+   grid-template-columns: 1fr;
+   justify-items: center;
+}
 
-.home-bg .home .content a{
+.organizer-card{
+   display: flex;
+   grid-template-columns: 1fr 1fr;
+   justify-content: space-between;
+   gap: 1rem;
+   
+}
+.home-bg .home .content a,
+.summary-card .delete-btn ,
+.delete-btn,
+.btn{
    display: inline-block;
    width: auto;
 }
+
+.back{
+   padding: 0 3ch 0 3ch;
+}
+
+.back-div{
+   padding-left: 1rem;
+}
+
 
 .home-category .box-container{
    display: grid;
@@ -83,4 +137,44 @@
    padding-bottom: 0;
 }
 
-admin 
+th ,
+td,
+.manage-organizer-table {
+   font-size: 2rem;
+   text-align: center;
+   vertical-align: middle;
+   padding: 1.5rem;
+   min-width: 20ch;
+}
+
+.manage-organizer-table th,
+.manage-organizer-table td{
+   font-size: 1.7rem;
+   min-width: 0ch;
+   max-width: 15ch;
+   word-wrap: break-word; 
+   word-break: break-word;
+}
+
+.manage-organizer-table a{
+   font-size: 1.7rem;
+   padding: 1rem;
+}
+
+
+.summary-list .a td {
+   line-height: 1.5;
+   color:var(--white);
+   background:var(--green);
+   padding: 0px;
+   border-radius: .5rem;
+}
+.summary-list a{
+   display: block;
+   width: 100%;
+   color: var(--white);
+}
+
+
+
+
