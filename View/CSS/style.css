@@ -66,23 +66,30 @@ h3{
    color: var(--orange);
 }
 
-.header, .summary-card{
+.header,
+.summary-card{
    display: grid;
    grid-template-columns: 1fr;
    justify-items: center;
 }
 
-
+.organizer-card{
+   display: flex;
+   grid-template-columns: 1fr 1fr;
+   justify-content: space-between;
+   gap: 1rem;
+   
+}
 .home-bg .home .content a,
 .summary-card .delete-btn ,
-.delete-btn{
+.delete-btn,
+.btn{
    display: inline-block;
    width: auto;
 }
 
 .back{
    padding: 0 3ch 0 3ch;
-   
 }
 
 .back-div{
