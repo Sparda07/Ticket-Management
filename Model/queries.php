@@ -115,7 +115,9 @@ function get_user_orders_with_event($conn, $user_id) {
 }
 
 function mark_order_paid($conn, $order_id, $user_id) {
-    $sql = "UPDATE orders SET payment_status='Paid' WHERE id=$order_id AND user_id='$user_id'";
+    $order_id = intval($order_id);
+    $user_id  = intval($user_id);
+    $sql = "UPDATE orders SET payment_status='paid' WHERE id=$order_id AND user_id='$user_id'";
     return mysqli_query($conn, $sql);
 }
 
@@ -126,19 +128,28 @@ function create_order_for_event($conn, $user_id, $event_id) {
         $title = $event['title'];
         $price = $event['price'];
         $sql = "INSERT INTO orders (user_id, name, total_tickets, total_price, placed_on, payment_status)
-                VALUES ('$user_id', '$title', 1, '$price', NOW(), 'Pending')";
+                VALUES ('$user_id', '$title', 1, '$price', NOW(), 'pending')";
         return mysqli_query($conn, $sql);
     }
     return false;
 }
 
+/* ✅ Cancel ticket (delete pending order only) */
 function cancel_order($conn, $order_id, $user_id) {
-    $sql = "DELETE FROM orders WHERE id = $order_id AND user_id = '$user_id'";
-    return mysqli_query($conn, $sql);
+    $order_id = intval($order_id);
+    $user_id  = intval($user_id);
+    $sql = "DELETE FROM orders 
+            WHERE id = $order_id 
+              AND user_id = '$user_id' 
+              AND LOWER(payment_status) = 'pending'";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+        error_log('Cancel Error: ' . mysqli_error($conn));
+    }
+    return $result;
 }
 
 /* ===================== ADMIN: queries (basic) ===================== */
-/* Counts */
 function count_users($conn) {
     $res = mysqli_query($conn, "SELECT * FROM users");
     return $res ? mysqli_num_rows($res) : 0;
@@ -182,8 +193,6 @@ function admin_delete_event($conn, $event_id) {
 }
 
 /* ===================== PAYMENTS (basic) ===================== */
-
-/* Get a single order for this user (safety) */
 function get_order_for_user($conn, $order_id, $user_id) {
     $order_id = intval($order_id);
     $user_id  = intval($user_id);
@@ -195,7 +204,6 @@ function get_order_for_user($conn, $order_id, $user_id) {
     return null;
 }
 
-/* Create a payment row with status=Initiated */
 function create_payment_initiated($conn, $order_id, $user_id, $amount, $method) {
     $order_id = intval($order_id);
     $user_id  = intval($user_id);
@@ -209,29 +217,25 @@ function create_payment_initiated($conn, $order_id, $user_id, $amount, $method) 
     return false;
 }
 
-/* Mark payment success/failure and optionally mark order as Paid */
 function finalize_payment($conn, $payment_id, $status, $txn_ref) {
     $payment_id = intval($payment_id);
     $status     = ($status === 'Success') ? 'Success' : 'Failed';
     $txn_ref    = mysqli_real_escape_string($conn, $txn_ref);
 
-    // Update payment row
     $upd = "UPDATE payments SET status='$status', txn_ref='$txn_ref' WHERE payment_id=$payment_id";
     if (!mysqli_query($conn, $upd)) return false;
 
-    // If success, fetch payment -> update order to Paid
     if ($status === 'Success') {
         $res = mysqli_query($conn, "SELECT order_id FROM payments WHERE payment_id=$payment_id");
         if ($res && mysqli_num_rows($res) > 0) {
             $row = mysqli_fetch_assoc($res);
             $oid = intval($row['order_id']);
-            mysqli_query($conn, "UPDATE orders SET payment_status='Paid' WHERE id=$oid");
+            mysqli_query($conn, "UPDATE orders SET payment_status='paid' WHERE id=$oid");
         }
     }
     return true;
 }
 
-/* Optional: fetch a single payment row */
 function get_payment($conn, $payment_id) {
     $payment_id = intval($payment_id);
     $res = mysqli_query($conn, "SELECT * FROM payments WHERE payment_id=$payment_id");
