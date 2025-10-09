@@ -10,28 +10,43 @@ $result = get_events_by_org($conn, $org_id);
 <html>
 <head>
     <title>Organizer Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
-    <h1>Welcome, <?= $_SESSION["username"]; ?> (Event Organizer)</h1>
+    <section class = "header">
+        <h3 class = >Event Orginizer</h3>
+        <p class = "paragraph">Welcome,<strong> <?= $_SESSION["username"]; ?> </strong></p>
+    </section>
 
-    <a href="add_event.php">➕ Add New Event</a>
-
-    <h2>Your Events</h2>
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Date</th>
-            <th>Tickets</th>
-            <th>Price</th>
-            <th>Location</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
+    
+    <section>
+        
+        <div class = "organizer-card"><a href="add_event.php" class = "btn">➕ Add New Event</a>
+        <a href="../Reg/logout.php" class = "delete-btn">Logout</a></div>
+         <div class = "header">
+            <h3>Your Events</h3>
+         <table border="1" cellpadding="10" class = "manage-organizer-table ">
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Tickets</th>
+                <th>Price</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
         <?php display_organizer_events($result); ?>
-    </table>
+        </table>
+         </div>
+         
 
-    <a href="../Reg/logout.php">Logout</a>
+
+    </section>
+    
+  
+
+   
+    
 </body>
 </html>
