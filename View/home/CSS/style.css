@@ -1,8 +1,5 @@
 @import url('components.css');
 
-.home-img{
-   height: 150px;;
-}
 .home-bg{
    background-size: cover;
    background-position: center;

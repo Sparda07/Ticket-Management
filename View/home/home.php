@@ -33,7 +33,7 @@ include("../../Model/config.php");
     </section>
 
     <section class="home-category">
-        <h1 class="title">Event Categories</h1>
+        
         <div class="box-container">
             <div class="box">
                 <img src="images/Concert.svg" alt="" height="150px">

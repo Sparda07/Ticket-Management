@@ -3,15 +3,15 @@ include("../../Model/config.php");
 include("../../Controller/auth.php");
 include("../../Model/queries.php");
 
-// Fetch all active events
+
 $result = get_active_events($conn);
 
-// Handle ticket order simulation
+
 if (isset($_GET['order_id'])) {
     $event_id = intval($_GET['order_id']);
     $user_id  = $_SESSION['user_id'];
 
-    // Insert a simple 1-ticket order for this event
+    
     create_order_for_event($conn, $user_id, $event_id);
 
     header("Location: my_ticket.php");
@@ -23,11 +23,11 @@ if (isset($_GET['order_id'])) {
 <html>
 <head>
     <title>Order Tickets</title>
-    <link rel="stylesheet" href="style_order.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
+<div class = "header"><h1 class="admin-header">Order Tickets</h1></div>
 
-<h1 class="title">Order Tickets</h1>
 
 <div class="box-container">
     <?php if ($result && mysqli_num_rows($result) > 0): ?>
@@ -37,13 +37,14 @@ if (isset($_GET['order_id'])) {
                 <p><strong>Location:</strong> <?php echo htmlspecialchars($event["location"]); ?></p>
                 <p><strong>Date:</strong> <?php echo $event["event_date"]; ?></p>
                 <p><strong>Price:</strong> $<?php echo htmlspecialchars($event["price"]); ?></p>
-                <a href="?order_id=<?php echo $event['event_id']; ?>" class="btn">Order Ticket</a>
+                <div><a href="?order_id=<?php echo $event['event_id']; ?>" class="btn">Order Ticket</a></div>
             </div>
         <?php endwhile; ?>
     <?php else: ?>
         <p>No events available!</p>
     <?php endif; ?>
 </div>
+<div class = "user-header"><a href = "home.php" class = "btn back"> Back Home </a></div>
 
 </body>
 </html>
