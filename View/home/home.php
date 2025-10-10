@@ -34,22 +34,22 @@ include("../../Model/config.php");
         
         <div class="box-container">
             <div class="box">
-                <a href="order_ticket.php" class="btn"><img src="images/order-now.png" alt="" height="150px">
+                <a href="order_ticket.php" class="btn"><img src="images/order-now.png" alt="" height="50px">
                 Order Ticket</a>
             </div>
 
             <div class="box">
-                <a href="my_ticket.php" class="btn"><img src="images/list.png" alt="" height="150px">
+                <a href="my_ticket.php" class="btn"><img src="images/list.svg" alt="" height="50px">
                 My Tickets
                 </a>
             </div>
 
             <div class="box">
-                <a href="../User/order_ticket.php" class="delete-btn"><img src="images/cencel.svg" alt="Cancel Ticket" height="150px">
+                <a href="../User/order_ticket.php" class="delete-btn"><img src="images/cencel.svg" alt="Cancel Ticket" height="50px">
                 Cencel Ticket</a>
             </div>
             <div class="box">
-                <a href="../Reg/logout.php" class="delete-btn"><img src="images/logout.png" alt="LOgout" height="150px">
+                <a href="../Reg/logout.php" class="delete-btn"><img src="images/logout.svg" alt="LOgout" height="50px" >
                 Logout</a>
             </div>
         </div>
