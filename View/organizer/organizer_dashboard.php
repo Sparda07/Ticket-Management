@@ -23,30 +23,24 @@ $result = get_events_by_org($conn, $org_id);
         
         <div class = "organizer-card"><a href="add_event.php" class = "btn">➕ Add New Event</a>
         <a href="../Reg/logout.php" class = "delete-btn">Logout</a></div>
-         <div class = "header">
+        <div class = "header">
             <h3>Your Events</h3>
-         <table border="1" cellpadding="10" class = "manage-organizer-table ">
-            <tr>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Date</th>
-                <th>Tickets</th>
-                <th>Price</th>
-                <th>Location</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        <?php display_organizer_events($result); ?>
-        </table>
-         </div>
+            <table border="1" cellpadding="10" class = "manage-organizer-table ">
+                <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Tickets</th>
+                    <th>Price</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            <?php display_organizer_events($result); ?>
+            </table>
+        </div>
          
-
-
     </section>
-    
-  
-
-   
-    
+       
 </body>
 </html>

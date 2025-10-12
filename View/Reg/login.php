@@ -1,15 +1,15 @@
 <?php
-include("../../Controller/login_auth.php"); // handles POST and redirects, or does nothing on GET
-include("../../Model/config.php");          // you wanted includes like in home.php
-include("../../Model/queries.php");         // (not strictly needed here, but kept as per your structure)
+include("../../Controller/login_auth.php"); 
+include("../../Model/config.php");          
+include("../../Model/queries.php");         
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Login</title>
-    <!-- Font Link -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <!-- Custom CSS -->
+   
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@ include("../../Model/queries.php");         // (not strictly needed here, but ke
         }
         ?>
 
-        <!-- Form posts to login_auth.php -->
+        
         <form action="../../Controller/login_auth.php" method="POST">
             <h3>Login</h3>
             <input type="email" name="email" class="box" placeholder="Enter Your Email" required>

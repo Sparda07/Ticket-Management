@@ -197,7 +197,8 @@ td,
 }
 
 .box .btn,
-.user-header .btn{
+.user-header .btn,
+.add-event .form .btn{
    font-size: 1.5rem;
    min-width: 12ch;
    min-height: 4.7rem;
@@ -208,6 +209,43 @@ td,
    font-size: 1.7rem;
    padding: 1rem;
 }
+
+.add-event{
+   display:grid;
+   width: fit-content;
+   border: 1rem;
+   background: var(--white);
+   box-shadow: var(--black);
+   border-radius: 0.5rem;
+   justify-content: center;
+   border-color: var(--black);
+   padding-top: 0.1rem;
+   margin-top: 2.5rem;
+}
+.add-event .form{
+   display: grid;
+   gap: .7rem;
+   
+}
+
+.add-event .form > *{
+   border: 0.1rem;
+   border-style: solid;
+   border-color: var(--black);
+   padding: 0.5rem;
+   width: 100%;
+
+}
+
+.add-event .header{
+   margin-top: 0;
+}
+
+.add-event .form .admin-header{
+   margin-top: 0;
+   margin-bottom: 2rem;
+}
+
 
 
 
