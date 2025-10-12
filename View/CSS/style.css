@@ -199,7 +199,10 @@ td,
 .box .btn,
 .user-header .btn{
    font-size: 1.5rem;
+   min-width: 12ch;
+   min-height: 4.7rem;
    padding: 0.5rem;
+   align-content: center;
 }
 .user-header .btn{
    font-size: 1.7rem;

@@ -45,7 +45,7 @@ include("../../Model/config.php");
             </div>
 
             <div class="box">
-                <a href="../User/order_ticket.php" class="delete-btn"><img src="images/cencel.svg" alt="Cancel Ticket" height="50px">
+                <a href="cancel_ticket.php" class="delete-btn"><img src="images/cencel.svg" alt="Cancel Ticket" height="50px">
                 Cencel Ticket</a>
             </div>
             <div class="box">
