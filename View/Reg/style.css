@@ -136,4 +136,9 @@ section{
     text-decoration: underline;
 }
 
+.requirement span{
+    font-size: 1.5rem;
+    color:red;
+}
+
 
