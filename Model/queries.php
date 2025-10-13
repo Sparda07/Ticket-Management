@@ -1,5 +1,5 @@
 <?php
-/* ---------------- Accounts (used by login/registration) ---------------- */
+/*(used by login/registration) */
 function get_account_by_email($conn, $role, $email) {
     if ($role == "user") {
         $sql = "SELECT * FROM users WHERE email = '$email'";
@@ -36,7 +36,7 @@ function create_account($conn, $role, $name, $hash, $email, $phone, $address) {
     return mysqli_query($conn, $sql);
 }
 
-/* ---------------- Organizer event queries (basic) ---------------- */
+/*Organizer event queries */
 function get_events_by_org($conn, $org_id) {
     $sql = "SELECT * FROM events WHERE org_id = $org_id";
     return mysqli_query($conn, $sql);
@@ -76,7 +76,7 @@ function delete_event($conn, $event_id) {
     return mysqli_query($conn, $sql);
 }
 
-/* -------- Organizer event table render (basic, echo-based) -------- */
+/*Organizer event table render*/
 function display_organizer_events($result) {
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -99,7 +99,7 @@ function display_organizer_events($result) {
     }
 }
 
-/* ---------------- User tickets & orders (basic) ---------------- */
+/*User tickets & orders*/
 function get_active_events($conn) {
     $sql = "SELECT * FROM events WHERE status='Active'";
     return mysqli_query($conn, $sql);
@@ -134,7 +134,7 @@ function create_order_for_event($conn, $user_id, $event_id) {
     return false;
 }
 
-/* ✅ Cancel ticket (delete pending order only) */
+/* Cancel ticket */
 function cancel_order($conn, $order_id, $user_id) {
     $order_id = intval($order_id);
     $user_id  = intval($user_id);
@@ -149,7 +149,7 @@ function cancel_order($conn, $order_id, $user_id) {
     return $result;
 }
 
-/* ===================== ADMIN: queries (basic) ===================== */
+/*ADMIN queries */
 function count_users($conn) {
     $res = mysqli_query($conn, "SELECT * FROM users");
     return $res ? mysqli_num_rows($res) : 0;
@@ -181,7 +181,7 @@ function get_all_orders($conn) {
     return mysqli_query($conn, "SELECT * FROM orders");
 }
 
-/* Deletes (admin actions) */
+/* Deletes */
 function admin_delete_user($conn, $user_id) {
     return mysqli_query($conn, "DELETE FROM users WHERE user_id = $user_id");
 }
@@ -192,7 +192,7 @@ function admin_delete_event($conn, $event_id) {
     return mysqli_query($conn, "DELETE FROM events WHERE event_id = $event_id");
 }
 
-/* ===================== PAYMENTS (basic) ===================== */
+/* PAYMENTS*/
 function get_order_for_user($conn, $order_id, $user_id) {
     $order_id = intval($order_id);
     $user_id  = intval($user_id);
