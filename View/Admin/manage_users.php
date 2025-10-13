@@ -3,7 +3,7 @@ include("../../Controller/admin_auth.php");
 include("../../Model/config.php");
 include("../../Model/queries.php");
 
-// Handle delete request
+
 if (isset($_GET['delete_id'])) {
     $user_id = intval($_GET['delete_id']);
     admin_delete_user($conn, $user_id);
@@ -11,7 +11,7 @@ if (isset($_GET['delete_id'])) {
     exit();
 }
 
-// Fetch all users
+
 $result = get_all_users($conn);
 ?>
 <!DOCTYPE html>

@@ -3,7 +3,7 @@ include("../../Controller/admin_auth.php");
 include("../../Model/config.php");
 include("../../Model/queries.php");
 
-// Delete event
+
 if (isset($_GET["delete_id"])) {
     $event_id = intval($_GET["delete_id"]);
     if (admin_delete_event($conn, $event_id)) {
@@ -13,7 +13,7 @@ if (isset($_GET["delete_id"])) {
     }
 }
 
-// Fetch all events
+
 $result = get_all_events($conn);
 ?>
 <!DOCTYPE html>

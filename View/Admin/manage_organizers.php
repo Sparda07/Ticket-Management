@@ -3,7 +3,7 @@ include("../../Controller/admin_auth.php");
 include("../../Model/config.php");
 include("../../Model/queries.php");
 
-// Delete organizer
+
 if (isset($_GET["delete_id"])) {
     $org_id = intval($_GET["delete_id"]);
     if (admin_delete_organizer($conn, $org_id)) {
@@ -13,7 +13,7 @@ if (isset($_GET["delete_id"])) {
     }
 }
 
-// Fetch all organizers
+
 $result = get_all_organizers($conn);
 ?>
 <!DOCTYPE html>

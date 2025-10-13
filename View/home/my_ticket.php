@@ -5,7 +5,7 @@ include("../../Model/queries.php");
 
 $user_id = $_SESSION["user_id"];
 
-// Fetch user's orders with event details
+
 $result = get_user_orders_with_event($conn, $user_id);
 ?>
 

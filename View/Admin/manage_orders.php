@@ -3,7 +3,6 @@ include("../../Controller/admin_auth.php");
 include("../../Model/config.php");
 include("../../Model/queries.php");
 
-// Fetch all orders
 $result = get_all_orders($conn);
 ?>
 <!DOCTYPE html>
