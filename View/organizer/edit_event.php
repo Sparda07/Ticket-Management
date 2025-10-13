@@ -31,10 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Edit Event</title></head>
+<head>
+    <title>Edit Event</title>
+    <link rel ="stylesheet" href = "../CSS/style.css">
+</head>
 <body>
-    <h1>Edit Event</h1>
-    <form method="POST">
+    <section class = "add-event">
+    <div class = "header"><h3 class = "admin-header">Edit Event</h3></div>
+    <form method="POST" class = "form">
         <input type="text" name="title" value="<?= $event['title']; ?>" required><br>
         <textarea name="description"><?= $event['description']; ?></textarea><br>
         <input type="text" name="category" value="<?= $event['category']; ?>" required><br>
@@ -47,8 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="cancelled" <?= $event['status']=='cancelled'?'selected':''; ?>>Cancelled</option>
             <option value="completed" <?= $event['status']=='completed'?'selected':''; ?>>Completed</option>
         </select><br>
-        <button type="submit">Update Event</button>
+        <button type="submit" class = "btn">Update Event</button>
     </form>
-    <a href="../Reg/logout.php">Logout</a>
+    </section>
+    <div class = "user-header"><a href="organizer_dashboard.php" class = "btn">Back</a></div>>
 </body>
 </html>
