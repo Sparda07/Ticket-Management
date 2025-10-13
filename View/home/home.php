@@ -20,49 +20,41 @@ include("../../Model/config.php");
                 Your one-stop destination for live events!<br>
                 From concerts, sports, and festivals to theatre and special shows — we bring you the best events happening around you.<br>
                 Book tickets easily – hassle-free and secure.<br>
-                Discover events – find what matches your mood.<br>
-                Stay updated – never miss out on exciting live experiences.<br>
                 Take a day off, grab your ticket, and make memories that last forever.
             </p>
-            <a href="#" class="btn">About Us</a>
+            
         </div>
 
         <div class="home-img">
-            <img src="images/home.png" alt="home img" height="200px">
+            <img src="images/home.png" alt="home img" height="150px">
         </div>
     </section>
 
     <section class="home-category">
-        <h1 class="title">Event Categories</h1>
+        
         <div class="box-container">
             <div class="box">
-                <img src="images/Concert.svg" alt="" height="150px">
-                <h3>Music</h3>
-                <a href="../User/order_ticket.php" class="btn">Book Ticket</a>
+                <a href="order_ticket.php" class="btn"><img src="images/order-now.png" alt="" height="50px">
+                Order Ticket</a>
             </div>
 
             <div class="box">
-                <img src="images/Festivals.jpg" alt="" height="150px">
-                <h3>Festivals & Fairs</h3>
-                <a href="../User/order_ticket.php" class="btn">Book Ticket</a>
+                <a href="my_ticket.php" class="btn"><img src="images/list.svg" alt="" height="50px">
+                My Tickets
+                </a>
             </div>
 
             <div class="box">
-                <img src="images/Sports.jpg" alt="sports-img" height="150px">
-                <h3>Sports</h3>
-                <a href="../User/order_ticket.php" class="btn">Book Ticket</a>
+                <a href="cancel_ticket.php" class="delete-btn"><img src="images/cencel.svg" alt="Cancel Ticket" height="50px">
+                Cencel Ticket</a>
+            </div>
+            <div class="box">
+                <a href="../Reg/logout.php" class="delete-btn"><img src="images/logout.svg" alt="LOgout" height="50px" >
+                Logout</a>
             </div>
         </div>
     </section>
-
-    <hr>
-    <h2>User Options</h2>
-    <ul>
-        <li><a href="order_ticket.php">🎟️ Order Ticket</a></li>
-        <li><a href="my_ticket.php">📋 My Tickets</a></li>
-        <li><a href="cancel_ticket.php">❌ Cancel Ticket</a></li>
-        <li><a href="../Reg/logout.php">🚪 Logout</a></li>
-    </ul>
+    
 </div>
 
 </body>

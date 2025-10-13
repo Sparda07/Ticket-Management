@@ -1,7 +1,6 @@
-/* CSS/style.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8; /* offwhite background */
+    background-color: #f8f8f8; 
     margin: 0;
     padding: 20px;
 }
@@ -23,7 +22,7 @@ body {
     padding: 15px;
     border-radius: 8px;
     width: 250px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -33,13 +32,12 @@ body {
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #8BC34A; /* light green */
-    color: white;
+    padding: 1rem 2rem;
+    background-color: var(--green);
+    color: var(white);
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
 }
 
 .btn:hover {

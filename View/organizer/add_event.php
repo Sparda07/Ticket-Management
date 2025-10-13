@@ -25,19 +25,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Add Event</title>
+    <link rel = "stylesheet" href = "../CSS/style.css">
 </head>
 <body>
-    <h1>Add New Event</h1>
-    <form method="POST">
-        <input type="text" name="title" placeholder="Event Title" required><br>
-        <textarea name="description" placeholder="Event Description" required></textarea><br>
-        <input type="text" name="category" placeholder="Category" required><br>
-        <input type="number" step="0.01" name="price" placeholder="Price" required><br>
-        <input type="number" name="tickets" placeholder="Total Tickets" required><br>
-        <input type="date" name="date" required><br>
-        <input type="text" name="location" placeholder="Location" required><br>
-        <button type="submit">Add Event</button>
-    </form>
-    <a href="../Reg/logout.php">Logout</a>
+    
+    <section class = "add-event">
+        <div class = "header"><h3 class = "admin-header">Add New Event</h3></div>
+        <form method="POST" class = "form">
+            <input type="text" name="title" placeholder="Event Title" required><br>
+            <textarea name="description" placeholder="Event Description" required></textarea><br>
+            <input type="text" name="category" placeholder="Category" required><br>
+            <input type="number" step="0.01" name="price" placeholder="Price" required><br>
+            <input type="number" name="tickets" placeholder="Total Tickets" required><br>
+            <input type="date" name="date" required><br>
+            <input type="text" name="location" placeholder="Location" required><br>
+            <button type="submit" class = "btn">Add Event</button>
+        </form>
+    </section>
+    <div class = "user-header"><a href="organizer_dashboard.php" class = "btn">Back</a></div>
 </body>
 </html>

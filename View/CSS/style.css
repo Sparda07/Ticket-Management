@@ -67,7 +67,8 @@ h3{
 }
 
 .header,
-.summary-card{
+.summary-card,
+.user-header{
    display: grid;
    grid-template-columns: 1fr;
    justify-items: center;
@@ -174,6 +175,84 @@ td,
    width: 100%;
    color: var(--white);
 }
+
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.6rem;
+    line-height: 2.5;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.box {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: .8rem;
+    width: 25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.box .btn,
+.user-header .btn,
+.add-event .form .btn{
+   font-size: 1.5rem;
+   min-width: 12ch;
+   min-height: 4.7rem;
+   padding: 0.5rem;
+   align-content: center;
+}
+.user-header .btn{
+   font-size: 1.7rem;
+   padding: 1rem;
+}
+
+.add-event{
+   display:grid;
+   width: fit-content;
+   border: 1rem;
+   background: var(--white);
+   box-shadow: var(--black);
+   border-radius: 0.5rem;
+   justify-content: center;
+   border-color: var(--black);
+   padding-top: 0.1rem;
+   margin-top: 2.5rem;
+}
+.add-event .form{
+   display: grid;
+   gap: .7rem;
+   
+}
+
+.add-event .form > *{
+   border: 0.1rem;
+   border-style: solid;
+   border-color: var(--black);
+   padding: 0.5rem;
+   width: 100%;
+
+}
+
+.add-event .header{
+   margin-top: 0;
+}
+
+.add-event .form .admin-header{
+   margin-top: 0;
+   margin-bottom: 2rem;
+}
+
+.add-event p{
+   padding-top: 0;
+}
+
+
+
+
 
 
 
